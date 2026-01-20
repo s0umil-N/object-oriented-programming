@@ -2,32 +2,28 @@ import java.util.Scanner;
 
 public class Soumil {
     public static void main(String[] args) {
-        // Using try-with-resources to automatically close the scanner
-        try (Scanner s = new Scanner(System.in)) {
-            
-            System.out.print("How many arrays do you want to create? ");
-            int numArrays = s.nextInt();
-            
-            System.out.print("How many elements should each array hold? ");
-            int size = s.nextInt();
+        Scanner s = new Scanner(System.in);
 
-            // Declaring a 2D array: arr[number of arrays][size of each]
-            int[][] allArrays = new int[numArrays][size];
-            int totalSum = 0;
+        System.out.print("How many arrays? ");
+        int n = s.nextInt(); // Number of arrays
+        
+        System.out.print("How many numbers in each? ");
+        int size = s.nextInt(); // Size of each array
 
-            // Input: Nested loops to fill the 2D array
-            for (int i = 0; i < numArrays; i++) {
-                System.out.println("\n--- Entering data for Array " + (i + 1) + " ---");
-                for (int j = 0; j < size; j++) {
-                    System.out.print("Enter element " + (j + 1) + ": ");
-                    allArrays[i][j] = s.nextInt();
-                    totalSum += allArrays[i][j]; // Add to total sum immediately
-                }
+        int totalSum = 0;
+
+        // Loop for each array
+        for (int i = 1; i <= n; i++) {
+            System.out.println("Entering numbers for Array #" + i);
+            
+            // Loop for the numbers inside the current array
+            for (int j = 1; j <= size; j++) {
+                int input = s.nextInt();
+                totalSum = totalSum + input; 
             }
-
-            System.out.println("\n------------------------------");
-            System.out.println("The total sum of all " + numArrays + " arrays is: " + totalSum);
-            System.out.println("------------------------------");
         }
+
+        System.out.println("Total Sum: " + totalSum);
+        s.close();
     }
 }
