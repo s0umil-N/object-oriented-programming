@@ -39,5 +39,6 @@ class DynamicArray {
                 System.out.println(arr[i] + "      | " + frequency[i]);
             }
         }
+        s.close();
     }
 }
