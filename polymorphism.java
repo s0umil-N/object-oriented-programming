@@ -16,9 +16,9 @@ class BMW extends Subject {
 }
 public class polymorphism {
     public static void main(String[] args) {
-   // Subject c = new Subject();
+    Subject c = new Subject();
     BMW b = new BMW();
-    System.out.println(b.sum(3, 4));
+    System.out.println(c.sum(3, 4));
     System.out.print(b.display());
     }
 }
